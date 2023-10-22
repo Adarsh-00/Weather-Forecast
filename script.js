@@ -48,7 +48,7 @@ const getWeatherDetails = (cityName, lat, lon) => {
         weatherCard.innerHTML = "";
         cityInput.value = "";
 
-        console.log(fiveDaysForecast);
+        //console.log(fiveDaysForecast);
         fiveDaysForecast.forEach((weatherItem, index) => {
             if (index === 0) {
                 currentWeather.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
@@ -64,7 +64,7 @@ const getWeatherDetails = (cityName, lat, lon) => {
 const getCityCoordinates = () => {
     const cityName = cityInput.value.trim();
     if (!cityName) return;
-    const api_url = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`;
+    const api_url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`;
 
     fetch(api_url).then(res => res.json()).then(data => {
         if (!data.length) return alert("No City Found");
